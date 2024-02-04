@@ -2,78 +2,71 @@
 #include <cmath>
 
 class Point {
-private:
-    double x;
-    double y;
-
 public:
-    Point(double x = 0, double y = 0) : x(x), y(y) {}
+  float x, y;
 
-    void nhapToaDo() {
-        std::cout << "Nhap toa do x: ";
-        std::cin >> x;
-        std::cout << "Nhap toa do y: ";
-        std::cin >> y;
-    }
+  void input() {
+    std::cout << "Nhap x: ";
+    std::cin >> x;
+    std::cout << "Nhap y: ";
+    std::cin >> y;
+  }
 
-    void inToaDo() {
-        std::cout << "(" << x << ", " << y << ")";
-    }
+  void inputPoint(std::string point) {
+    std::cout << point << std::endl;
+    input();
+  }
 
-    double tinhKhoangCach(Point p) {
-        return sqrt(pow(x - p.x, 2) + pow(y - p.y, 2));
-    }
+  void display() {
+    std::cout << "(" << x << ", " << y << ")\n";
+  }
+
+  float distance(Point d) {
+    float dx = x - d.x;
+    float dy = y - d.y;
+    return std::sqrt(dx*dx + dy*dy);
+  }
+
+  friend std::ostream& operator<<(std::ostream& os, const Point& p) {
+    os << "(" << p.x << ", " << p.y << ")";
+    return os;
+  }
 };
 
-class TamGiac {
-private:
-    Point A;
-    Point B;
-    Point C;
-
+class Tamgiac {
 public:
-    void nhapTamGiac() {
-        std::cout << "Nhap toa do diem A:\n";
-        A.nhapToaDo();
-        std::cout << "Nhap toa do diem B:\n";
-        B.nhapToaDo();
-        std::cout << "Nhap toa do diem C:\n";
-        C.nhapToaDo();
-    }
+  Point a, b, c;
 
-    void inTamGiac() {
-        std::cout << "Toa do diem A: ";
-        A.inToaDo();
-        std::cout << "\nToa do diem B: ";
-        B.inToaDo();
-        std::cout << "\nToa do diem C: ";
-        C.inToaDo();
-        std::cout << std::endl;
-    }
+  void input() {
+    a.inputPoint("Nhap diem A:");
+    b.inputPoint("Nhap diem B:");
+    c.inputPoint("Nhap diem C:");
+  }
 
-    double tinhChuVi() {
-        double AB = A.tinhKhoangCach(B);
-        double BC = B.tinhKhoangCach(C);
-        double CA = C.tinhKhoangCach(A);
-        return AB + BC + CA;
-    }
+  void display() {
+    std::cout << "A: " << a << std::endl;
+    std::cout << "B: " << b << std::endl;
+    std::cout << "C: " << c << std::endl;
+  }
 
-    double tinhDienTich() {
-        double AB = A.tinhKhoangCach(B);
-        double BC = B.tinhKhoangCach(C);
-        double CA = C.tinhKhoangCach(A);
-        double p = (AB + BC + CA) / 2;
-        return sqrt(p * (p - AB) * (p - BC) * (p - CA));
-    }
+  float chuvi() {
+    float ab = a.distance(b);
+    float bc = b.distance(c);
+    float ca = c.distance(a);
+    float p = (ab + bc + ca) / 2.0;
+    return std::sqrt(p * (p - ab) * (p - bc) * (p - ca));
+  }
+
+  float dientich() {
+    return a.distance(b) + b.distance(c) + c.distance(a);
+  }
 };
 
 int main() {
-    TamGiac tamGiac;
-    tamGiac.nhapTamGiac();
-    std::cout << "Tam giac vua nhap:\n";
-    tamGiac.inTamGiac();
-    std::cout << "Chu vi: " << tamGiac.tinhChuVi() << std::endl;
-    std::cout << "Dien tich: " << tamGiac.tinhDienTich() << std::endl;
-
-    return 0;
+  Tamgiac t;
+  t.input();
+  t.display();
+  std::cout << "Area: " << t.chuvi() << std::endl;
+  std::cout << "Perimeter: " << t.dientich() << std::endl;
+  return 0;
 }
