@@ -1,36 +1,43 @@
 #include <iostream>
 #include <iomanip>
 
-using namespace std;
-
 class Time {
-
 private:
-    int hour;
-    int minute;
-    int second;
+  int hour;
+  int minute;
+  int second;
 
 public:
-    
-    void inputTime() {
-        cout << "Enter hour: ";
-        cin >> hour;
-        cout << "Enter minute: ";
-        cin >> minute;
-        cout << "Enter second: ";
-        cin >> second;
-    }
+  void inputTime() {
+    std::cout << "Enter hour: ";
+    std::cin >> hour;
+    std::cout << "Enter minute: ";
+    std::cin >> minute;
+    std::cout << "Enter second: ";
+    std::cin >> second;
+    normalizeTime();
+  }
 
-    void printTime() {
-        cout << setfill('0') << setw(2) << hour << ":"
-             << setfill('0') << setw(2) << minute << ":"
-             << setfill('0') << setw(2) << second << "\n";
+  void displayTime() {
+    std::cout 
+          << std::setfill('0') << std::setw(2) << hour << ":"
+          << std::setfill('0') << std::setw(2) << minute << ":"
+          << std::setfill('0') << std::setw(2) << second << "\n";
+  }
+
+private:
+  void normalizeTime() {
+    minute += second / 60;
+    second %= 60;
+    hour += minute / 60;
+    minute %= 60;
+    hour %= 24;
     }
 };
 
 int main() {
-    Time t;
-    t.inputTime();
-    t.printTime();
-    return 0;
+  Time t;
+  t.inputTime();
+  t.displayTime();
+  return 0;
 }
