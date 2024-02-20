@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string>
 
 class Point {
 public:
@@ -49,7 +50,7 @@ public:
     std::cout << "C: " << c << std::endl;
   }
 
-  float chuvi() {
+  float dientich() {
     float ab = a.distance(b);
     float bc = b.distance(c);
     float ca = c.distance(a);
@@ -57,7 +58,7 @@ public:
     return std::sqrt(p * (p - ab) * (p - bc) * (p - ca));
   }
 
-  float dientich() {
+  float chuvi() {
     return a.distance(b) + b.distance(c) + c.distance(a);
   }
 };

@@ -10,8 +10,9 @@ private:
 
 public:
     void inputInfo() {
-        std::cout << "Enter student's name: ";
-        std::cin >> name;
+        std::cout << "Enter student's name: "; 
+        std::cin.ignore();
+        std::getline(std::cin,name);
         std::cout << "Enter student's age: ";
         std::cin >> age;
         std::cout << "Enter student's average score: ";

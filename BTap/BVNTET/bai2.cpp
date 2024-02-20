@@ -47,7 +47,6 @@ int main() {
     diem2.inputpoint("2");
     diem2.in();
 
-
     double khoangCach = diem1.tinhKhoangCach(diem2);
     std::cout << "Khoang cach giua hai diem: " << khoangCach << std::endl;
 

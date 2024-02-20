@@ -20,9 +20,9 @@ public:
 
   void displayTime() {
     std::cout 
-          << std::setfill('0') << std::setw(2) << hour << ":"
-          << std::setfill('0') << std::setw(2) << minute << ":"
-          << std::setfill('0') << std::setw(2) << second << "\n";
+      << std::setfill('0') << std::setw(2) << hour << ":"
+      << std::setfill('0') << std::setw(2) << minute << ":"
+      << std::setfill('0') << std::setw(2) << second << "\n";
   }
 
 private:
