@@ -1,34 +1,34 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-
+using namespace std;
 class Point {
 public:
   float x, y;
 
   void input() {
-    std::cout << "Nhap x: ";
-    std::cin >> x;
-    std::cout << "Nhap y: ";
-    std::cin >> y;
+    cout << "Nhap x: ";
+    cin >> x;
+    cout << "Nhap y: ";
+    cin >> y;
   }
 
-  void inputPoint(std::string point) {
-    std::cout << point << std::endl;
+  void inputPoint(string point) {
+    cout << point << endl;
     input();
   }
 
   void display() {
-    std::cout << "(" << x << ", " << y << ")\n";
+    cout << "(" << x << ", " << y << ")\n";
   }
 
   float distance(Point d) {
     float dx = x - d.x;
     float dy = y - d.y;
-    return std::sqrt(dx*dx + dy*dy);
+    return sqrt(dx*dx + dy*dy);
   }
 
-  friend std::ostream& operator<<(std::ostream& os, const Point& p) {
+  friend ostream& operator<<(ostream& os, const Point& p) {
     os << "(" << p.x << ", " << p.y << ")";
     return os;
   }
@@ -45,9 +45,9 @@ public:
   }
 
   void display() {
-    std::cout << "A: " << a << std::endl;
-    std::cout << "B: " << b << std::endl;
-    std::cout << "C: " << c << std::endl;
+    cout << "A: " << a << endl;
+    cout << "B: " << b << endl;
+    cout << "C: " << c << endl;
   }
 
   float dientich() {
@@ -55,7 +55,7 @@ public:
     float bc = b.distance(c);
     float ca = c.distance(a);
     float p = (ab + bc + ca) / 2.0;
-    return std::sqrt(p * (p - ab) * (p - bc) * (p - ca));
+    return sqrt(p * (p - ab) * (p - bc) * (p - ca));
   }
 
   float chuvi() {
@@ -67,7 +67,7 @@ int main() {
   Tamgiac t;
   t.input();
   t.display();
-  std::cout << "Area: " << t.chuvi() << std::endl;
-  std::cout << "Perimeter: " << t.dientich() << std::endl;
+  cout << "Area: " << t.chuvi() << endl;
+  cout << "Perimeter: " << t.dientich() << endl;
   return 0;
 }

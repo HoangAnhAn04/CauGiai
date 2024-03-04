@@ -1,28 +1,28 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+using namespace std;
 class Student {
 private:
-    std::string name;
+    string name;
     int age;
     float averageScore;
 
 public:
     void inputInfo() {
-        std::cout << "Enter student's name: "; 
-        std::cin.ignore();
-        std::getline(std::cin,name);
-        std::cout << "Enter student's age: ";
-        std::cin >> age;
-        std::cout << "Enter student's average score: ";
-        std::cin >> averageScore;
+        cout << "Enter student's name: "; 
+        cin.ignore();
+        getline(cin,name);
+        cout << "Enter student's age: ";
+        cin >> age;
+        cout << "Enter student's average score: ";
+        cin >> averageScore;
     }
 
     void printInfo() {
-        std::cout << "Name: " << name << std::endl;
-        std::cout << "Age: " << age << std::endl;
-        std::cout << "Average Score: " << averageScore << std::endl;
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Average Score: " << averageScore << endl;
     }
 
     bool isPass() {
@@ -32,22 +32,22 @@ public:
 
 int main() {
     int n;
-    std::cout << "Enter the number of students: ";
-    std::cin >> n;
+    cout << "Enter the number of students: ";
+    cin >> n;
 
-    std::vector<Student> students(n);
+    vector<Student> students(n);
 
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter information for student " << i + 1 << std::endl;
+        cout << "Enter information for student " << i + 1 << endl;
         students[i].inputInfo();
     }
 
-    std::cout << "Information of students:" << std::endl;
+    cout << "Information of students:" << endl;
     for (int i = 0; i < n; i++) {
         students[i].printInfo();
     }
 
-    std::cout << "Students who passed the exam:" << std::endl;
+    cout << "Students who passed the exam:" << endl;
     for (int i = 0; i < n; i++) {
         if (students[i].isPass()) {
             students[i].printInfo();

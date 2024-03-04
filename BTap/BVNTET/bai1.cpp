@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+using namespace std;
 class Time {
 private:
   int hour;
@@ -9,20 +9,20 @@ private:
 
 public:
   void inputTime() {
-    std::cout << "Enter hour: ";
-    std::cin >> hour;
-    std::cout << "Enter minute: ";
-    std::cin >> minute;
-    std::cout << "Enter second: ";
-    std::cin >> second;
+    cout << "Enter hour: ";
+    cin >> hour;
+    cout << "Enter minute: ";
+    cin >> minute;
+    cout << "Enter second: ";
+    cin >> second;
     normalizeTime();
   }
 
   void displayTime() {
-    std::cout 
-      << std::setfill('0') << std::setw(2) << hour << ":"
-      << std::setfill('0') << std::setw(2) << minute << ":"
-      << std::setfill('0') << std::setw(2) << second << "\n";
+    cout 
+      << setfill('0') << setw(2) << hour << ":"
+      << setfill('0') << setw(2) << minute << ":"
+      << setfill('0') << setw(2) << second << "\n";
   }
 
 private:

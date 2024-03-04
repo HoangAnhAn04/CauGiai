@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-
+using namespace std;
 class Point {
 private:
     double x;
@@ -16,25 +16,25 @@ public:
 
     // Phương thức nhập điểm
     void nhap() {
-        std::cout << "Nhap toa do x: ";
-        std::cin >> x;
-        std::cout << "Nhap toa do y: ";
-        std::cin >> y;
+        cout << "Nhap toa do x: ";
+        cin >> x;
+        cout << "Nhap toa do y: ";
+        cin >> y;
     }
-    void inputpoint(std::string diem ) {
-        std::cout<< "diem " << diem << std::endl;
+    void inputpoint(string diem ) {
+        cout<< "diem " << diem << endl;
         nhap();
     }
     // Phương thức in điểm
     void in() {
-        std::cout << "Toa do diem: (" << x << ", " << y << ")" << std::endl;
+        cout << "Toa do diem: (" << x << ", " << y << ")" << endl;
     }
 
     // Phương thức tính khoảng cách từ điểm hiện tại tới điểm khác
     double tinhKhoangCach(Point diemKhac) {
         double deltaX = x - diemKhac.x;
         double deltaY = y - diemKhac.y;
-        return std::sqrt(deltaX * deltaX + deltaY * deltaY);
+        return sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 };
 
@@ -48,7 +48,7 @@ int main() {
     diem2.in();
 
     double khoangCach = diem1.tinhKhoangCach(diem2);
-    std::cout << "Khoang cach giua hai diem: " << khoangCach << std::endl;
+    cout << "Khoang cach giua hai diem: " << khoangCach << endl;
 
     return 0;
 }
