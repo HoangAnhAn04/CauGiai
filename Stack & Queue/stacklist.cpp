@@ -29,6 +29,7 @@ void pop(Node **top){
 int Top(Node **top){
     if(*top != NULL)
         return (*top)->data; 
+    return 0;
 }
 
 int size(Node *top){ 
