@@ -72,8 +72,7 @@ void menu(){
 }
 
 int main(){
-	node *queue = NULL;
-    
+	node *queue = NULL;    
     int chon;
     do{
         menu();
